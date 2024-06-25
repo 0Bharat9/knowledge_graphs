@@ -58,12 +58,12 @@ A[MikeSmith12] -->|Knows| B[JohnDoe45]
 ### Notations or Formats :-
 
 > 1. **N3**:-
->    > - **Simple listing of triples **
->    >
->    > > {<uri://people#MikeSmith12>,
 
-    <http://xmlns.com/foaf/0.1/knows>,
-    <uri://people#JohnDoe45>} .
+```
+{<uri://people#MikeSmith12>,
+ <http://xmlns.com/foaf/0.1/knows>,
+ <uri://people#JohnDoe45>} .
+```
 
 > > >
 >
@@ -73,30 +73,32 @@ A[MikeSmith12] -->|Knows| B[JohnDoe45]
 >    > - **Literals in quotations marks**
 >    > - **Triple ends with period**
 >    > - **White spaces will be ignored**
->    >
->    > > 1. @prefix rdf:<<http://www.w3.org/1999/02/22-rdf-syntax-ns#>>.
->    > > 2. @prefix pers:<<http://college.in/Personal#>>.
->    > > 3. @base <<http://college.in/Student>>.
->    > > 4.
->    > > 5. :JohnDoe pers: hasPhoneNumber "1234567890";
->    > > 6. pers: WritesBlog<<http://semweb2024.blogpost.com>> .
-> 3. **RDF-XML Serialization :-**
->    > > 1. <rdf:RDF
 
+```
+@prefix rdf:<<http://www.w3.org/1999/02/22-rdf-syntax-ns#>>.
+@prefix pers:<<http://college.in/Personal#>>.
+@base <<http://college.in/Student>>.
+
+:JohnDoe pers: hasPhoneNumber "1234567890";
+        pers: WritesBlog<<http://semweb2024.blogpost.com>> .
+```
+
+> 3. **RDF-XML Serialization :-**
+
+```
+<rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:pers="http://college.in/Personal#"
     xml:base="http://college.in/Student">
 
-> > > 2.
-> > > 3. <rdf:Description rdf:about="http://college.in/Student/John">
-> > > 4. <pers:hasPhoneNumber>1234567890</pers:hasPhoneNumber>
-> > > 5. <pers:WritesBlog rdf:resource="http://semweb2024.blogpost.com"/>
-> > > 6. </rdf:Description>
-> > > 7. </rdf:RDF>
+<rdf:Description rdf:about="http://college.in/Student/John">
+    <pers:hasPhoneNumber>1234567890</pers:hasPhoneNumber><pers:WritesBlog rdf:resource="http://semweb2024.blogpost.com"/>
+</rdf:Description>
+</rdf:RDF>
+```
 
 ```mermaid
 graph LR
 A[john]-->|hasPhoneNumber| B[123456789]
 A[john]-->|WritesBlog| C[semweb2024.blogpost]
 ```
-

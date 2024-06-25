@@ -26,8 +26,11 @@
 
 > - Statements in Turtle are RDF triples. Each statement ends with a period '.'
 >
-> > - example:-
-> >   ex:John ex:hasName "John Doe";
-> >   ex:hasAge 30;
-> >   ex:hasFriend ex:Jane.
-> >   ex:Jane ex:hasName "Jane Smith".
+ example:-
+
+```
+ex:John ex:hasName "John Doe";
+ex:hasAge 30;
+ex:hasFriend ex:Jane.
+ex:Jane ex:hasName "Jane Smith".
+```
