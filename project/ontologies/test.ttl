@@ -1,0 +1,73 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix shop: <http://www.example.org/shop#> .
+
+# Classes
+shop:User a owl:Class .
+shop:Product a owl:Class .
+shop:Purchase a owl:Class .
+shop:Category a owl:Class .
+shop:Recommendation a owl:Class .
+shop:Review a owl:Class .
+
+# Object Properties
+shop:hasPurchased a owl:ObjectProperty ;
+    rdfs:domain shop:User ;
+    rdfs:range shop:Purchase .
+
+shop:hasProduct a owl:ObjectProperty ;
+    rdfs:domain shop:Purchase ;
+    rdfs:range shop:Product .
+
+shop:belongsToCategory a owl:ObjectProperty ;
+    rdfs:domain shop:Product ;
+    rdfs:range shop:Category .
+
+shop:recommendedFor a owl:ObjectProperty ;
+    rdfs:domain shop:Recommendation ;
+    rdfs:range shop:User .
+
+shop:recommendsProduct a owl:ObjectProperty ;
+    rdfs:domain shop:Recommendation ;
+    rdfs:range shop:Product .
+
+shop:hasReview a owl:ObjectProperty ;
+    rdfs:domain shop:Product ;
+    rdfs:range shop:Review .
+
+shop:writtenBy a owl:ObjectProperty ;
+    rdfs:domain shop:Review ;
+    rdfs:range shop:User .
+
+# Data Properties
+shop:userID a owl:DatatypeProperty ;
+    rdfs:domain shop:User ;
+    rdfs:range xsd:string .
+
+shop:userName a owl:DatatypeProperty ;
+    rdfs:domain shop:User ;
+    rdfs:range xsd:string .
+
+shop:productID a owl:DatatypeProperty ;
+    rdfs:domain shop:Product ;
+    rdfs:range xsd:string .
+
+shop:productName a owl:DatatypeProperty ;
+    rdfs:domain shop:Product ;
+    rdfs:range xsd:string .
+
+shop:purchaseDate a owl:DatatypeProperty ;
+    rdfs:domain shop:Purchase ;
+    rdfs:range xsd:date .
+
+shop:reviewRating a owl:DatatypeProperty ;
+    rdfs:domain shop:Review ;
+    rdfs:range xsd:integer .
+
+shop:reviewText a owl:DatatypeProperty ;
+    rdfs:domain shop:Review ;
+    rdfs:range xsd:string .
+
+
