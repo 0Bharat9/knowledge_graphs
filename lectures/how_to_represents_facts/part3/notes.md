@@ -1,4 +1,4 @@
-# How to represent facts (part2) :-
+# How to represent facts (part3) :-
 
 ## Blank nodes :-
 
@@ -76,4 +76,3 @@ C-->|ex:Date| G[2024-07-08]
   rdf:_4 <D>
 ] .
 ```
-
