@@ -5,7 +5,7 @@
 ### Resource:-
 
 > 1. can be everything (in principle)
-> 2. must be uniquely identified and be refrencecable simply via an IRI
+> 2. must be uniquely identified and be refrenceable simply via an IRI
 
 ### Description:-
 
