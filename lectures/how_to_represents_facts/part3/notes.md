@@ -63,6 +63,109 @@ C-->|ex:classRoom| F[Room202]
 C-->|ex:Date| G[2024-07-08]
 ```
 
+## Lists :-
+
+> - lists are a way to represent ordered collections of resources. RDF provides a standard vocabulary to describe lists, which is part of the RDF Schema (RDFS). RDF provides two primary mechanisms for grouping resources:
+>
+> > - Containers and Collections. Both serve the purpose of grouping related resources, but they differ in structure, intended use, and the semantics of ordering.
+> >
+> > 1.  Containers are used to group resources, and they come in three types:
+> >
+> > > 1. rdf:Bag is used for collections where the order does not matter and duplicate entries are allowed.
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:myBag rdf:type rdf:Bag ;
+       rdf:_1 :item1 ;
+       rdf:_2 :item2 ;
+       rdf:_3 :item3 .
+```
+
+```
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Bag rdf:about="http://example.org/myBag">
+    <rdf:li rdf:resource="http://example.org/item1"/>
+    <rdf:li rdf:resource="http://example.org/item2"/>
+    <rdf:li rdf:resource="http://example.org/item3"/>
+  </rdf:Bag>
+</rdf:RDF>
+```
+
+> > > 2. rdf:Seq is used for collections where the order matters.
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:mySeq rdf:type rdf:Seq ;
+       rdf:_1 :item1 ;
+       rdf:_2 :item2 ;
+       rdf:_3 :item3 .
+```
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:mySeq rdf:type rdf:Seq ;
+       rdf:_1 :item1 ;
+       rdf:_2 :item2 ;
+       rdf:_3 :item3 .
+```
+
+> > > 3. rdf:Alt is used for collections where the items are alternatives, and typically, one of them is expected to be selected.
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:myAlt rdf:type rdf:Alt ;
+       rdf:_1 :item1 ;
+       rdf:_2 :item2 ;
+       rdf:_3 :item3 .
+```
+
+```
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Alt rdf:about="http://example.org/myAlt">
+    <rdf:li rdf:resource="http://example.org/item1"/>
+    <rdf:li rdf:resource="http://example.org/item2"/>
+    <rdf:li rdf:resource="http://example.org/item3"/>
+  </rdf:Alt>
+</rdf:RDF>
+```
+
+> > > 2.  Collections are used to represent ordered lists of resources, ensuring a strict sequence using rdf:first and rdf:rest. This structure creates a closed list where the end is explicitly indicated by rdf:nil.
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:myList rdf:first :item1 ;
+        rdf:rest [ rdf:first :item2 ;
+                   rdf:rest [ rdf:first :item3 ;
+                              rdf:rest rdf:nil ] ] .
+```
+
+```
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http://example.org/myList">
+    <rdf:first rdf:resource="http://example.org/item1"/>
+    <rdf:rest>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://example.org/item2"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/item3"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </rdf:rest>
+  </rdf:Description>
+</rdf:RDF>
+
+```
+
+> - Container list example :-
+
 ```
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix lv: <http://hpi-web.de/Lecture#> .
@@ -76,3 +179,43 @@ C-->|ex:Date| G[2024-07-08]
   rdf:_4 <D>
 ] .
 ```
+
+```mermaid
+graph LR
+A[:swt]-->|lv:hasParticipants| B[_:b0]
+B-->|rdf:_1| C[A]
+B-->|rdf:_2| D[B]
+B-->|rdf:_3| E[C]
+B-->|rdf:_4| F[D]
+B-->|rdf:type| G[rdf:seq]
+```
+
+> - Collectionl ist example :-
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix lv: <http://hpi-web.de/Lecture#> .
+@prefix : <http://hpi-web.de/> .
+
+:swt lv:hasParticipants (
+  <A>
+  <B>
+  <C>
+  <D>
+) .
+```
+
+```mermaid
+graph LR
+A(:swt)-->|lv:hasParticipants| B(_:b0)
+B-->|rdf:first| C(A)
+B-->|rdf:rest| H(_:b1)
+H-->|rdf:first| D(B)
+H-->|rdf:rest| I(_:b2)
+I-->|rdf:first| E(C)
+I-->|rdf:rest| J(_:b3)
+J-->|rdf:first| F(D)
+J-->|rdf:rest| K(_:b4)
+K-->|rdf:rest| G(rdf:nil)
+```
+
