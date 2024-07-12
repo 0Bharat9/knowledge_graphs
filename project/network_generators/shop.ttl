@@ -1,0 +1,148 @@
+#################################################################
+###  Generated with the experimental alpha version of the TTL exporter of WebVOWL (version 1.1.7)  http://visualdataweb.de/webvowl/   ###
+#################################################################
+
+@prefix : 		<http://visualdataweb.org/newOntology/> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: 		<http://purl.org/dc/elements/1.1/> .
+@prefix xml: 		<http://www.w3.org/XML/1998/namespace> .
+@prefix wot: 		<http://xmlns.com/wot/0.1/> .
+@prefix vs: 		<http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@prefix : 		<http://visualdataweb.org/newOntology/> .
+@base 			<http://visualdataweb.org/newOntology/> .
+
+<http://visualdataweb.org/newOntology/> rdf:type owl:Ontology ;
+                                        dc:title "New ontology"@en; 
+                                        dc:description "New ontology description"@en . 
+#################################################################
+
+###  Property Definitions (Number of Property) 17 ###
+#  --------------------------- Property 0------------------------- 
+:reviewedby rdf:type owl:ObjectProperty ;
+            rdfs:label "reviewedby"@IRI-based; 
+            rdfs:label "reviewedby"@en; 
+            rdfs:domain :reviews;
+            rdfs:range :NewClass . 
+#  --------------------------- Property 1------------------------- 
+:productprice rdf:type owl:DatatypeProperty ;
+              rdfs:label "productprice"@IRI-based; 
+              rdfs:label "productprice"@en; 
+              rdfs:domain :product;
+              rdfs:range xsd:integer . 
+#  --------------------------- Property 2------------------------- 
+:reviewrating rdf:type owl:DatatypeProperty ;
+              rdfs:label "reviewrating"@IRI-based; 
+              rdfs:label "reviewrating"@en; 
+              rdfs:domain :reviews;
+              rdfs:range xsd:integer . 
+#  --------------------------- Property 3------------------------- 
+:hascategory rdf:type owl:ObjectProperty ;
+             rdfs:label "hascategory"@IRI-based; 
+             rdfs:label "hascategory"@en; 
+             rdfs:domain :product;
+             rdfs:range :category . 
+#  --------------------------- Property 4------------------------- 
+:userid rdf:type owl:DatatypeProperty ;
+        rdfs:label "userid"@IRI-based; 
+        rdfs:label "userid"@en; 
+        rdfs:domain :NewClass;
+        rdfs:range xsd:integer . 
+#  --------------------------- Property 5------------------------- 
+:productid rdf:type owl:DatatypeProperty ;
+           rdfs:label "productid"@IRI-based; 
+           rdfs:label "productid"@en; 
+           rdfs:domain :product;
+           rdfs:range xsd:integer . 
+#  --------------------------- Property 6------------------------- 
+:reviewtext rdf:type owl:DatatypeProperty ;
+            rdfs:label "reviewtext"@IRI-based; 
+            rdfs:label "reviewtext"@en; 
+            rdfs:domain :reviews;
+            rdfs:range xsd:string . 
+#  --------------------------- Property 7------------------------- 
+:productname rdf:type owl:DatatypeProperty ;
+             rdfs:label "productname"@IRI-based; 
+             rdfs:label "productname"@en; 
+             rdfs:domain :product;
+             rdfs:range xsd:string . 
+#  --------------------------- Property 8------------------------- 
+:purchasedate rdf:type owl:DatatypeProperty ;
+              rdfs:label "purchasedate"@IRI-based; 
+              rdfs:label "purchasedate"@en; 
+              rdfs:domain :purchase;
+              rdfs:range xsd:string . 
+#  --------------------------- Property 9------------------------- 
+:recommendedfor rdf:type owl:ObjectProperty ;
+                rdfs:label "recommendedfor"@IRI-based; 
+                rdfs:label "recommendedfor"@en; 
+                rdfs:domain :recommendation;
+                rdfs:range :NewClass . 
+#  --------------------------- Property 10------------------------- 
+:username rdf:type owl:DatatypeProperty ;
+          rdfs:label "username"@IRI-based; 
+          rdfs:label "username"@en; 
+          rdfs:domain :NewClass;
+          rdfs:range xsd:string . 
+#  --------------------------- Property 11------------------------- 
+:hasreviewed rdf:type owl:ObjectProperty ;
+             rdfs:label "hasreviewed"@IRI-based; 
+             rdfs:label "hasreviewed"@en; 
+             rdfs:domain :product;
+             rdfs:range :reviews . 
+#  --------------------------- Property 12------------------------- 
+:categoryname rdf:type owl:DatatypeProperty ;
+              rdfs:label "categoryname"@IRI-based; 
+              rdfs:label "categoryname"@en; 
+              rdfs:domain :category;
+              rdfs:range xsd:string . 
+#  --------------------------- Property 13------------------------- 
+:haspurchased rdf:type owl:ObjectProperty ;
+              rdfs:label "purchased"@en; 
+              rdfs:domain :purchase;
+              rdfs:range :product . 
+#  --------------------------- Property 14------------------------- 
+:objectProperty1 rdf:type owl:ObjectProperty ;
+                 rdfs:label "hasPurchased"@en; 
+                 rdfs:domain :NewClass;
+                 rdfs:range :purchase . 
+#  --------------------------- Property 15------------------------- 
+:purchaseprice rdf:type owl:DatatypeProperty ;
+               rdfs:label "purchaseprice"@IRI-based; 
+               rdfs:label "purchaseprice"@en; 
+               rdfs:domain :purchase;
+               rdfs:range xsd:integer . 
+#  --------------------------- Property 16------------------------- 
+:recommendsproduct rdf:type owl:ObjectProperty ;
+                   rdfs:label "recommendsproduct"@IRI-based; 
+                   rdfs:label "recommendsproduct"@en; 
+                   rdfs:domain :recommendation;
+                   rdfs:range :product . 
+###  Class Definitions (Number of Classes) 6 ###
+#  --------------------------- Class  0------------------------- 
+:recommendation rdf:type owl:Class; 
+                rdfs:label "recommendation"@IRI-based; 
+                rdfs:label "recommendation"@en . 
+#  --------------------------- Class  1------------------------- 
+:reviews rdf:type owl:Class; 
+         rdfs:label "reviews"@IRI-based; 
+         rdfs:label "reviews"@en . 
+#  --------------------------- Class  2------------------------- 
+:product rdf:type owl:Class; 
+         rdfs:label "product"@IRI-based; 
+         rdfs:label "product"@en . 
+#  --------------------------- Class  3------------------------- 
+:category rdf:type owl:Class; 
+          rdfs:label "category"@IRI-based; 
+          rdfs:label "category"@en . 
+#  --------------------------- Class  4------------------------- 
+:purchase rdf:type owl:Class; 
+          rdfs:label "purchase"@IRI-based; 
+          rdfs:label "purchase"@en . 
+#  --------------------------- Class  5------------------------- 
+:NewClass rdf:type owl:Class; 
+          rdfs:label "NewClass"@IRI-based; 
+          rdfs:label "users"@en . 

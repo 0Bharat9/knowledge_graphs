@@ -1,0 +1,60 @@
+/* styles/main.css */
+
+body {
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text color for contrast */
+  font-family: "Roboto", sans-serif; /* Modern sans-serif font */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+textarea {
+  width: 97.5%;
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6200ea; /* Primary color */
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3700b3; /* Darker shade for hover effect */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+button[type="submit"]:active {
+  background-color: #6200ea;
+  transform: translateY(0); /* Reset lift on active */
+}

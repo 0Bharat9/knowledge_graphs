@@ -3,7 +3,7 @@ from pyvis.network import Network
 
 # Load your RDF file
 g = rdflib.Graph()
-g.parse("./shop.ttl")
+g.parse("./input.rdf")
 
 # Create a PyVis network
 net = Network(directed=True)
@@ -22,4 +22,4 @@ for s, p, o in g:
     net.add_edge(str(s), str(o), title=str(p), **node_styles['predicate'])
 
 # Visualize the graph
-net.show("rdf_graph.html", notebook=False)
+net.show("./views/rdf_graph.html", notebook=False)
