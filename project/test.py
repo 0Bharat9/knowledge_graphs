@@ -22,4 +22,4 @@ for s, p, o in g:
     net.add_edge(str(s), str(o), title=str(p), **node_styles['predicate'])
 
 # Visualize the graph
-net.show("./views/rdf_graph.html", notebook=False)
+net.write_html("./views/rdf_graph.html", notebook=False)
