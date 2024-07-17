@@ -1,6 +1,6 @@
-lib
-input.txt
-rdf_graph.html
+./lib
+./input.txt
+./rdf_graph.html
 
 # compiled output
 /dist
