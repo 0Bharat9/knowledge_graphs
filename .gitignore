@@ -1,3 +1,7 @@
+lib
+input.txt
+rdf_graph.html
+
 # compiled output
 /dist
 /tmp
