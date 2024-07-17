@@ -4,36 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graph Tab</title>
-    <link rel="stylesheet" href="styles/content.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <%- rdfGraphContent %>
+    <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 <body>
-      
-        <div class="tab-container">
-            <div class="tab">
-                <span class="tab-label">SEE RESULT AS:</span>
-                <span class="tab-divider">&lt;</span>
-                <span class="tab-selected"><i class="fas fa-chart-bar"></i> GRAPH</span>
-            </div>
-            <div class="nav-buttons">
-                <span class="nav-button"><i class="fas fa-home"></i> Home</span>
-                <span class="nav-button"><i class="fas fa-phone contact-icon-upside-down"></i> Contact</span>
-            </div>
-        </div>
-        <%- rdfGraphScript %>
-
-<footer>
-    <div class="footer-buttons">
-        <button class="footer-button"><i class="fas fa-info-circle"></i> ABOUT EXAMPLE</button>
-        <button class="footer-button"><i class="fas fa-play-circle"></i> DEMO</button>
-        <button class="footer-button"><i class="fas fa-github"></i> VIEW ON</button>
-    </div>
-    <div class="footer-text">
-        RDF © 
-    </div>
-</footer>
+    <%- include('partials/header.ejs') %>
+    <%- rdfGraphScript %>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Wait for the Vis network to be initialized
+    setTimeout(function() {
+        var canvas = document.querySelector("canvas");
+        if (canvas) {
+            var ctx = canvas.getContext("2d");
+            // Save the current drawing state
+            ctx.save();
+            // Set the composite operation to 'destination-over' to ensure the fill happens beneath existing drawings
+            ctx.globalCompositeOperation = 'destination-over';
+            // Set the desired background color
+            ctx.fillStyle = '#0e1019';
+            // Fill the entire canvas with the background color
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Restore the drawing state
+            ctx.restore();
+        }
+    }, 1000); // Adjust the timeout duration if necessary
+});
+</script>
 </body>
 </html>
 

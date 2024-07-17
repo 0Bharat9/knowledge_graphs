@@ -18,15 +18,39 @@ app.set("views", "./views");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
-  res.render("index");
+app.get("/", (req, res) => {
+  res.render("index"); // Corresponds to 'views/index.ejs'
 });
 
-app.post("/new", (req, res) => {
-  const code = req.body.rdf;
+app.get("/benefits", (req, res) => {
+  res.render("benefits"); // Corresponds to 'views/benefits.ejs'
+});
+
+app.get("/use", (req, res) => {
+  res.render("use"); // Corresponds to 'views/use.ejs'
+});
+
+app.get("/rdfc", (req, res) => {
+  res.render("rdfc"); // Corresponds to 'views/rdfc.ejs'
+});
+
+app.get("/rdfv", (req, res) => {
+  res.render("rdfv"); // Corresponds to 'views/rdfv.ejs'
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact"); // Corresponds to 'views/contact.ejs'
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup"); // Corresponds to 'views/signup.ejs'
+});
+
+app.post("/visualize", (req, res) => {
+  const code = req.body.data;
 
   // Save the RDF code to a file
-  fs.writeFileSync("./input.rdf", code);
+  fs.writeFileSync("./input.txt", code);
 
   // Execute the Python script with the input RDF file
   exec("python3 test.py", (error, stdout, stderr) => {

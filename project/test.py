@@ -1,9 +1,23 @@
 import rdflib
 from pyvis.network import Network
 
-# Load your RDF file
-g = rdflib.Graph()
-g.parse("./input.rdf")
+
+def detect_rdf_format(file_path):
+    formats = ["xml", "n3", "turtle", "nt", "trig", "nquads", "json-ld"]
+    for rdf_format in formats:
+        try:
+            g = rdflib.Graph()
+            g.parse(file_path, format=rdf_format)
+            print(f"RDF format detected: {rdf_format}")
+            return g, rdf_format
+        except Exception as e:
+            continue
+    raise ValueError("Unable to detect RDF format.")
+
+
+# Load your RDF file and detect its format
+file_path = "./input.txt"
+g, rdf_format = detect_rdf_format(file_path)
 
 # Create a PyVis network
 net = Network(directed=True)
@@ -21,5 +35,52 @@ for s, p, o in g:
     net.add_node(str(o), label=str(o), **node_styles['object'])
     net.add_edge(str(s), str(o), title=str(p), **node_styles['predicate'])
 
-# Visualize the graph
-net.write_html("./views/rdf_graph.html", notebook=False)
+# Set network options
+options = """
+var options = {
+  "nodes": {
+    "font": {
+      "size": 20,
+      "face": "Arial"
+    }
+  },
+  "edges": {
+    "color": {
+      "inherit": true
+    },
+    "smooth": {
+      "type": "dynamic"
+    }
+  },
+  "physics": {
+    "barnesHut": {
+      "gravitationalConstant": -5000,
+      "springLength": 150,
+      "springConstant": 0.005
+    },
+    "minVelocity": 0.75
+  },
+  "interaction": {
+    "dragNodes": true,
+    "dragView": true,
+    "zoomView": true
+  },
+  "manipulation": {
+    "enabled": true
+  },
+  "layout": {
+    "hierarchical": {
+      "enabled": false
+    }
+  }
+}
+"""
+net.set_options(options)
+
+# Generate the HTML content
+html_content = net.generate_html(notebook=False)
+
+
+# Write the modified HTML content to a file
+with open("./views/rdf_graph.html", "w") as f:
+    f.write(html_content)

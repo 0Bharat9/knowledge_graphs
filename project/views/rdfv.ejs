@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizer - RDF Visualizer</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+        <%- include('partials/header.ejs') %>
+
+    <main>
+        <section class="intro">
+            <div id="particles-js"></div>
+            <h1>RDF VISUALIZER</h1>
+            <h2>Visualize your RDF data</h2>
+            <p>Input your XML or JSON file and visualize the RDF graph linked data.</p>
+        </section>
+       <section class="rdf-visualizer">
+        <div class="input-container">
+            <form action="/visualize" method="POST">
+                <nav class="input-nav">
+                    <ul>
+                        <li>
+                            <input type="radio" id="auto" name="fileType" value="auto" checked>
+                            <label for="auto">Auto-detect</label>
+                        </li>
+
+                        <li>
+                            <input type="radio" id="xml" name="fileType" value="xml" checked>
+                            <label for="xml">RDF/XML</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="json" name="fileType" value="json" checked>
+                            <label for="json">JSON</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="turtle" name="fileType" value="turtle" checked>
+                            <label for="turtle">Turtle/N3</label>
+                        </li>
+                    </ul>
+                </nav>
+                <textarea name="data" placeholder="Paste your data here..."></textarea>
+                <button class="cta-button" id="submit-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+    </main>
+    <script src="scripts/particles-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const xmlTab = document.getElementById('xml-tab');
+            const jsonTab = document.getElementById('json-tab');
+            const inputBox = document.getElementById('input-box');
+            
+            xmlTab.addEventListener('click', (e) => {
+                e.preventDefault();
+                xmlTab.classList.add('active');
+                jsonTab.classList.remove('active');
+                inputBox.placeholder = 'Paste your XML data here...';
+            });
+            
+            jsonTab.addEventListener('click', (e) => {
+                e.preventDefault();
+                jsonTab.classList.add('active');
+                xmlTab.classList.remove('active');
+                inputBox.placeholder = 'Paste your JSON data here...';
+            });
+        });
+    </script>
+</body>
+</html>

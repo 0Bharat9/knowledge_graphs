@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+<http://example.org/book1> a ns1:Book ;
+    ns1:author <http://example.org/author1> ;
+    ns1:name "The Catcher in the Rye" .
+
+<http://example.org/book2> a ns1:Book ;
+    ns1:author <http://example.org/author2> ;
+    ns1:name "1984" .
+
+<http://example.org/book3> a ns1:Book ;
+    ns1:author <http://example.org/author3> ;
+    ns1:name "To Kill a Mockingbird" .
+
+<http://example.org/book4> a ns1:Book ;
+    ns1:author <http://example.org/author4> ;
+    ns1:name "Don Quixote" .
+
+<http://example.org/book5> a ns1:Book ;
+    ns1:author <http://example.org/author5> ;
+    ns1:name "ignited minds" .
+
+<http://example.org/author1> a ns1:Person ;
+    ns1:name "J.D. Salinger" .
+
+<http://example.org/author2> a ns1:Person ;
+    ns1:name "George Orwell" .
+
+<http://example.org/author3> a ns1:Person ;
+    ns1:name "Harper Lee" .
+
+<http://example.org/author4> a ns1:Person ;
+    ns1:name "Miguel de Cervantes" .
+
+<http://example.org/author5> a ns1:Person ;
+    ns1:name "Dr. APJ Abdul Kalam" .
