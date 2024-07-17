@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases - RDF Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="icon-container">
+            <i class="fas fa-project-diagram"></i>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="use.html">Use Cases</a></li>
+                <li><a href="rdfc.html">RDF Converter</a></li>
+                <li><a href="rdfv.html">RDF Visulaizer</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html" class="beta-signup">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="use-cases">
+            <div id="particles-js"></div>
+            <h1>Use Cases</h1>
+            <div class="cases-container">
+                <div class="case-item">
+                    <h3>Data Integration</h3>
+                    <p>Integrate diverse datasets seamlessly using RDF graphs and unlock hidden insights.</p>
+                </div>
+                <div class="case-item">
+                    <h3>Knowledge Management</h3>
+                    <p>Utilize RDF for efficient knowledge management and enhanced semantic search capabilities.</p>
+                </div>
+                <div class="case-item">
+                    <h3>Data Interoperability</h3>
+                    <p>Ensure smooth data interoperability between different systems and platforms using RDF standards.</p>
+                </div>
+                <div class="case-item">
+                    <h3>Semantic Web</h3>
+                    <p>Leverage RDF to contribute to the semantic web and link your data with other datasets.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="particles-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Interactive effect for case items
+            const caseItems = document.querySelectorAll('.case-item');
+            caseItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'scale(1.05)';
+                    item.style.boxShadow = '0 10px 20px rgba(193, 225, 76, 0.2)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'scale(1)';
+                    item.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
