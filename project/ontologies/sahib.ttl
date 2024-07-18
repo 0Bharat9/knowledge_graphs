@@ -1,6 +1,0 @@
-@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix pers:<http://gndec.ac.in/Personal#>.
-@base <http://gndec.ac.in/Student>.
-
-:Sahib pers: hasPhoneNumber "1234567890";
-       pers: WritesBlog<http://semweb2024.blogpost.com .

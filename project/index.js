@@ -46,22 +46,38 @@ app.get("/signup", (req, res) => {
   res.render("signup"); // Corresponds to 'views/signup.ejs'
 });
 
-app.post("/visualize", (req, res) => {
-  const code = req.body.data;
+app.post("/convert", (req, res) => {
+  const convert = req.body.data;
+  const file_type = req.body.fileType;
+  fs.writeFileSync("./convert.txt", convert);
 
-  // Save the RDF code to a file
-  fs.writeFileSync("./input.txt", code);
-
-  // Execute the Python script with the input RDF file
-  exec("python3 visualize.py", (error, stdout, stderr) => {
+  exec(`python3 convert.py ${file_type}`, (error) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return res
         .status(500)
         .send("An error occurred while processing the RDF data.");
     }
-    console.log(`stdout: ${stdout}`);
-    console.error(`stderr: ${stderr}`);
+    const final = fs.readFileSync("./output.txt");
+    res.render("rdfc.ejs", {
+      output: final,
+    });
+  });
+});
+
+app.post("/visualize", (req, res) => {
+  const visualize = req.body.data;
+  // Save the RDF code to a file
+  fs.writeFileSync("./visualize.txt", visualize);
+
+  // Execute the Python script with the input RDF file
+  exec(`python3 visualize.py`, (error) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return res
+        .status(500)
+        .send("An error occurred while processing the RDF data.");
+    }
 
     const rdfGraphHtmlPath = path.join(__dirname, "views", "rdf_graph.html");
     const rdfGraphHtmlContent = fs.readFileSync(rdfGraphHtmlPath, "utf-8");
