@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') %>
+<div class="container">
+  <h1>Enter RDF Content</h1>
+  <form action="/new" method="post">
+    <textarea
+      id="rdfInput"
+      placeholder="Enter RDF content here..."
+      name="rdf"
+    ></textarea>
+    <button type="submit">Add</button>
+  </form>
+</div>
+<%- include('partials/footer.ejs') %>

@@ -53,7 +53,7 @@ app.post("/visualize", (req, res) => {
   fs.writeFileSync("./input.txt", code);
 
   // Execute the Python script with the input RDF file
-  exec("python3 test.py", (error, stdout, stderr) => {
+  exec("python3 visualize.py", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return res

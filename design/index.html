@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RDF Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="icon-container">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <nav>
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="use.html">Use Cases</a></li>
+          <li><a href="rdfc.html">RDF Converter</a></li>
+          <li><a href="rdfv.html">RDF Visualizer</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="signup.html" class="beta-signup">Signup</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <div id="particles-js"></div>
+        <h1>VISUALIZE YOUR DATA</h1>
+        <h2>HAVE YOU EVER VISUALIZED YOUR DATA?</h2>
+        <p>
+          <strong>Visualize RDF graph </strong>linked data as a connected
+          diagram.
+        </p>
+        <button class="cta-button" onclick="scrollToSection()">
+          Let's get started!
+        </button>
+        <div class="icon-container">
+          <i class="fas fa-project-diagram"></i>
+          <i class="fas fa-network-wired"></i>
+          <i class="fas fa-chart-line"></i>
+          <i class="fas fa-sitemap"></i>
+        </div>
+      </section>
+      <section class="web-evolution" id="web-evolution">
+        <div class="web-version">
+          <h3>RDF graph visualization</h3>
+          <p>Visualize: <strong>Subject -> Predicate -> Object </strong></p>
+          <ul>
+            <li>
+              Nodes represent subjects and objects, while arcs represent their
+              relationship, which always goes from subject to object.
+            </li>
+            <li>
+              Graph visualization allows you to inspect structured data on your
+              web page and its relations, as well as to get a better picture of
+              the meaning and semantics it conveys.
+            </li>
+            <li>
+              This can help identify if structured data gives the data the exact
+              meaning that you desire, as well as to form new information.
+            </li>
+          </ul>
+        </div>
+        <div class="web-version">
+          <h3>Triples</h3>
+          <p>Are: <strong>RDF data model statements</strong></p>
+          <ul>
+            <li>
+              Subject (entity) is the first part of an RDF statement that refers
+              to who or what the RDF statement is about.
+            </li>
+            <li>
+              Predicate (attribute) is the middle term (the linkage, or "verb")
+              in an RDF statement which describes relationship between subject
+              and object that always goes from subject to object.
+            </li>
+            <li>
+              Object (value) is the final part of an RDF statement that can be
+              another entity or a plain value.
+            </li>
+          </ul>
+        </div>
+        <div class="web-version">
+          <h3>Linked data</h3>
+          <p>Called: <strong>Metadata</strong></p>
+          <ul>
+            <li>
+              Linked data (also called structured data or schema markup) can be
+              defined as data that describes data in a standardized way, or
+              so-called metadata, and is usually information that is meant for
+              machines to read them.
+            </li>
+            <li>
+              The main goal of structured data markup - to give meaning to the
+              data that computers can read and understand.li>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="cta-section">
+        <div id="particles-js-cta"></div>
+        <h2>Easily Develop and Use</h2>
+        <h3>
+          We can use RDF to interlink different vocabularies, from different
+          knowledge domains, by mapping and connecting the corresponding terms
+          with same meaning in other vocabularies. This principle enables
+          linking data to other data from other domains, which is the core of
+          linked data and semantic web.
+        </h3>
+        <h2>START NOW !</h2>
+        <a href="signup.html" class="signup-button">Signup</a>
+      </section>
+    </main>
+    <script src="particles-config.js"></script>
+    <script>
+      function scrollToSection() {
+        document
+          .getElementById("web-evolution")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Interactive effect for case items
+        const caseItems = document.querySelectorAll(".web-version");
+        caseItems.forEach((item) => {
+          item.addEventListener("mouseenter", () => {
+            item.style.transform = "scale(1.05)";
+            item.style.boxShadow = "0 10px 20px rgba(193, 225, 76, 0.2)";
+          });
+          item.addEventListener("mouseleave", () => {
+            item.style.transform = "scale(1)";
+            item.style.boxShadow = "none";
+          });
+        });
+
+        // Toggle menu functionality
+        const menuToggle = document.getElementById("mobile-menu");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

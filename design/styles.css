@@ -1,32 +1,9 @@
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: "Arial", sans-serif; /* Make sure to include the appropriate font if not Arial */
   color: #d1d5db;
   background-color: #0a0e17;
   overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.intro {
-  position: relative;
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #0a0e17;
-  z-index: 1;
-  overflow: hidden;
-}
-
-#particles-js,
-#particles-js-cta {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Ensure the particles are behind the content */
 }
 
 header {
@@ -39,8 +16,11 @@ header {
   z-index: 1;
 }
 
-header .logo img {
-  height: 40px;
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: #d1d5db;
+  cursor: pointer;
 }
 
 nav ul {
@@ -102,6 +82,80 @@ nav ul li .beta-signup:hover {
   color: #c1e14c;
 }
 
+@media (max-width: 1080px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 300px;
+    background-color: #0e1019;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding-top: 80px; /* Add top padding to avoid overlap with header */
+    transition: left 0.3s ease;
+  }
+
+  nav ul.active {
+    left: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block; /* Ensure block display for full-width clickable area */
+    padding: 20px 0px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #c1e14c;
+  }
+
+  nav ul li a::before {
+    display: none;
+  }
+
+  nav ul li a:hover {
+    background-color: #0a0e17;
+    color: #c1e14c;
+  }
+
+  nav ul li .beta-signup {
+    width: 90%;
+    text-align: center;
+    border: none;
+    margin-top: 5px;
+    border-radius: 10;
+  }
+}
+
+.intro {
+  position: relative;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #0a0e17;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#particles-js,
+#particles-js-cta {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the particles are behind the content */
+}
+
 .intro h1 {
   color: #c1e14c;
   font-size: 2.5em;
@@ -160,7 +214,7 @@ nav ul li .beta-signup:hover {
   padding: 50px 20px;
   background-color: #111827;
   position: relative; /* Ensure content is above particles */
-  z-index: 1;
+  z-index: -1;
 }
 
 .web-version {
@@ -199,7 +253,7 @@ nav ul li .beta-signup:hover {
   padding: 50px 20px;
   background-color: #0a0e17;
   position: relative; /* Ensure content is above particles */
-  z-index: 1;
+  z-index: -1;
 }
 
 .cta-section h2 {
@@ -455,18 +509,7 @@ nav ul li .beta-signup:hover {
   align-items: center;
   flex-direction: column;
   padding: 50px 20px;
-  background-color: #0a0e17;
-  position: relative;
-  z-index: 1;
-}
-
-.rdf-converter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 50px 20px;
-  background-color: #0a0e17;
+  background-color: #0e1019;
   position: relative;
   z-index: 1;
 }
@@ -476,11 +519,11 @@ nav ul li .beta-signup:hover {
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #c1e14c;
-  width: 100%;
+  width: 80%;
   max-width: 600px;
   text-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -494,12 +537,10 @@ nav ul li .beta-signup:hover {
 }
 
 .input-nav ul li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline;
 }
 
-.input-nav ul li label {
+.input-nav ul li a {
   color: #d1d5db;
   text-decoration: none;
   font-weight: bold;
@@ -511,13 +552,13 @@ nav ul li .beta-signup:hover {
     color 0.3s;
 }
 
-.input-nav ul li label.active,
-.input-nav ul li label:hover {
+.input-nav ul li a.active,
+.input-nav ul li a:hover {
   background-color: #1f2937;
   border: 2px solid #c1e14c;
 }
 
-.input-container textarea {
+#input-box {
   width: 100%;
   height: 200px;
   background-color: #1f2937;
@@ -526,47 +567,8 @@ nav ul li .beta-signup:hover {
   color: #d1d5db;
   padding: 10px;
   margin-top: 20px;
-  font-size: 1em;
   resize: none;
-  box-sizing: border-box;
-}
-
-.input-nav ul li input {
-  appearance: none;
-  width: 1.7em;
-  height: 1.7em;
-  background-color: #171717;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-  border-radius: 50%;
-  transition: 0.4s ease-in-out;
-}
-
-.input-nav ul li input:hover {
-  scale: 1.2;
-  cursor: pointer;
-  box-shadow: none;
-}
-
-.input-nav ul li .circle {
-  position: relative;
-  top: 0.01em;
-  left: -1.1em;
-  width: 0.6em;
-  height: 0.6em;
-  background-color: yellow;
-  scale: 0;
-  border-radius: 10px;
-  transition: 0.4s ease-in-out;
-}
-
-.input-nav ul li input:checked {
-  box-shadow: none;
-  border: 1px solid yellow;
-}
-
-.input-nav ul li input:checked + .circle {
-  transform: rotate(360deg);
-  scale: 1;
+  font-size: 1em;
 }
 
 #submit-button {
@@ -582,6 +584,86 @@ nav ul li .beta-signup:hover {
   font-size: 1em;
   cursor: pointer;
   margin-top: 20px;
+}
+
+#submit-button:hover {
+  background-color: #0a0e17;
+  color: #c1e14c;
+}
+.input-container {
+  background-color: #0e1019;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #c1e14c;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+}
+
+.input-nav {
+  margin-bottom: 20px;
+}
+
+.input-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.input-nav ul li {
+  display: inline;
+}
+
+.input-nav ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.input-nav ul li a.active,
+.input-nav ul li a:hover {
+  background-color: #1f2937;
+  border: 2px solid #c1e14c;
+}
+
+#input-box {
+  width: 100%;
+  height: 200px;
+  background-color: #1f2937;
+  border: 2px solid #c1e14c;
+  border-radius: 5px;
+  color: #d1d5db;
+  padding: 10px;
+  margin-top: 20px;
+  resize: none;
+  font-size: 1em;
+}
+
+#submit-button {
+  background-color: #c1e14c;
+  color: #0a0e17;
+  border-radius: 5px;
+  padding: 15px 30px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 #submit-button:hover {
@@ -614,13 +696,4 @@ nav ul li .beta-signup:hover {
 .signup-button:hover {
   background-color: #0a0e17;
   color: #c1e14c; /* Darker green on hover */
-}
-
-#mynetwork {
-  width: 100%;
-  height: 800px;
-  background-color: #0e1019;
-  border: 1px solid lightgray;
-  position: relative;
-  float: left;
 }

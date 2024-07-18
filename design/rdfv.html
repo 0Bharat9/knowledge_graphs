@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizer - RDF Visualizer</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-        <%- include('partials/header.ejs') %>
-
+    <header>
+        <div class="icon-container">
+            <i class="fas fa-project-diagram"></i>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="use.html">Use Cases</a></li>
+                <li><a href="rdfc.html">RDF Converter</a></li>
+                <li><a href="rdfv.html">RDF Visulaizer</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html" class="beta-signup">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section class="intro">
             <div id="particles-js"></div>
@@ -18,36 +32,20 @@
             <h2>Visualize your RDF data</h2>
             <p>Input your XML or JSON file and visualize the RDF graph linked data.</p>
         </section>
-       <section class="rdf-visualizer">
-        <div class="input-container">
-            <form action="/visualize" method="POST">
+        <section class="rdf-visualizer">
+            <div class="input-container">
                 <nav class="input-nav">
                     <ul>
-                        <li>
-                            <input type="radio" id="auto" name="fileType" value="auto" checked="">
-                            <div class="circle"></div>
-                            <label for="auto">Auto-detect</label>
-                        </li>
-
-                        <li>
-                            <input type="radio" id="xml" name="fileType" value="xml">
-                            <div class="circle"></div>
-                            <label for="xml">RDF/XML</label>
-                        </li>
-                        <li>
-                            <input type="radio" id="turtle" name="fileType" value="turtle">
-                            <div class="circle"></div>
-                            <label for="turtle">Turtle/N3</label>
-                        </li>
+                        <li><a href="#" class="active" id="xml-tab">XML</a></li>
+                        <li><a href="#" id="json-tab">JSON</a></li>
                     </ul>
                 </nav>
-                <textarea name="data" placeholder="Paste your data here..."></textarea>
-                <button class="cta-button" id="submit-button" type="submit">Submit</button>
-            </form>
-        </div>
-    </section>
+                <textarea id="input-box" placeholder="Paste your XML or JSON data here..."></textarea>
+                <button class="cta-button" id="submit-button">Submit</button>
+            </div>
+        </section>
     </main>
-    <script src="scripts/particles-config.js"></script>
+    <script src="particles-config.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const xmlTab = document.getElementById('xml-tab');
