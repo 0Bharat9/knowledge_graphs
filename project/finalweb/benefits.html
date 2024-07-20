@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDF Visualizer - Benefits</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>   <header>
+      <div class="icon-container">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <nav>
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+             <li class="logo-container">
+               <div class="icon-container3">
+                   <i class="fas fa-project-diagram"></i>
+              </div>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="use.html">Use Cases</a></li>
+          <li><a href="rdfc.html">RDF Converter</a></li>
+          <li><a href="rdfv.html">RDF Visualizer</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="signup.html" class="beta-signup">Signup</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <div id="particles-js"></div>
+            <h1>BENEFITS OF USING RDF VISUALIZER</h1>
+            <h2>Why choose ?</h2>
+            <p>Discover the numerous advantages of using RDF graph visualization and linked data tools.</p>
+        </section>
+        <section class="benefits-section">
+            <div class="benefit-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Enhanced Data Understanding</h3>
+                <p>Visualize complex data relationships easily to gain deeper insights and make informed decisions.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-network-wired"></i>
+                <h3>Improved Data Connectivity</h3>
+                <p>Interlink different datasets seamlessly to create a unified view of your data landscape.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Efficient Data Management</h3>
+                <p>Manage and organize your data more effectively with our intuitive RDF graph tools.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Easy Integration</h3>
+                <p>Integrate our tools into your existing workflow with minimal effort and maximum compatibility.</p>
+            </div>
+        </section>
+    </main>
+    <script src="particles-config.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Interactive effect for case items
+            const caseItems = document.querySelectorAll('.benefit-item');
+            caseItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'scale(1.05)';
+                    item.style.boxShadow = '0 10px 20px rgba(193, 225, 76, 0.2)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'scale(1)';
+                    item.style.boxShadow = 'none';
+                });
+            });
+        });
+          const menuToggle = document.getElementById("mobile-menu");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+    
+    </script>
+</body>
+</html>
