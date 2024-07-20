@@ -9,15 +9,18 @@ def detect_rdf_format(file_path):
             g = rdflib.Graph()
             g.parse(file_path, format=rdf_format)
             print(f"RDF format detected: {rdf_format}")
-            return g, rdf_format
+            return rdf_format
         except Exception as e:
             continue
     raise ValueError("Unable to detect RDF format.")
 
 
 # Load your RDF file and detect its format
-file_path = "./input.txt"
-g, rdf_format = detect_rdf_format(file_path)
+file_path = "./visualize.txt"
+rdf_format = detect_rdf_format(file_path)
+
+g = rdflib.Graph()
+g.parse(file_path, format=rdf_format)
 
 # Create a PyVis network
 net = Network(directed=True)

@@ -624,3 +624,26 @@ nav ul li .beta-signup:hover {
   position: relative;
   float: left;
 }
+
+.output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 20px;
+  background-color: #0a0e17;
+  position: relative;
+  z-index: 1;
+}
+
+.output-container {
+  background-color: #0e1019;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #c1e14c;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

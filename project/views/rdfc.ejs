@@ -10,8 +10,6 @@
 </head>
 <body>
         <%- include('partials/header.ejs') %>
-
-    <main>
         <section class="intro">
             <div id="particles-js"></div>
             <h1>RDF CONVERTER</h1>
@@ -20,7 +18,7 @@
         </section>
        <section class="rdf-converter">
         <div class="input-container">
-            <form action="/visualize" method="POST">
+            <form action="/convert" method="POST">
                 <nav class="input-nav">
                     <ul>
 
@@ -30,12 +28,12 @@
                             <label for="xml">RDF/XML</label>
                         </li>
                         <li>
-                            <input type="radio" id="json" name="fileType" value="json" checked>
+                            <input type="radio" id="json" name="fileType" value="json-ld" >
                             <div class="circle"></div>
                             <label for="json">JSON</label>
                         </li>
                         <li>
-                            <input type="radio" id="turtle" name="fileType" value="turtle" checked>
+                            <input type="radio" id="turtle" name="fileType" value="turtle">
                             <div class="circle"></div>
                             <label for="turtle">Turtle/N3</label>
                         </li>
@@ -46,7 +44,19 @@
             </form>
         </div>
     </section>
-    </main>
+    <section class = "output">
+      <div class = "output-container">
+      <% if(locals.output){%>
+       <pre>
+           <%=output%>
+       </pre>
+      <%}else{%>
+       <p>
+        output will bw shown here....
+       </p>
+      <%}%>
+      </div>
+    </section>
     <script src="scripts/particles-config.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
