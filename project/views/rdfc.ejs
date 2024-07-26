@@ -21,25 +21,55 @@
             <form action="/convert" method="POST">
                 <nav class="input-nav">
                     <ul>
-
                         <li>
-                            <input type="radio" id="xml" name="fileType" value="xml" checked>
-                            <div class="circle"></div>
-                            <label for="xml">RDF/XML</label>
+                          <p>input format: </p>
                         </li>
                         <li>
-                            <input type="radio" id="json" name="fileType" value="json-ld" >
+                            <input type="radio" id="xml-in" name="input_fileType" value="xml">
                             <div class="circle"></div>
-                            <label for="json">JSON</label>
+                            <label for="xml-in">RDF/XML</label>
                         </li>
                         <li>
-                            <input type="radio" id="turtle" name="fileType" value="turtle">
+                            <input type="radio" id="json-in" name="input_fileType" value="json-ld" >
                             <div class="circle"></div>
-                            <label for="turtle">Turtle/N3</label>
+                            <label for="json-in">JSON</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="turtle-in" name="input_fileType" value="turtle">
+                            <div class="circle"></div>
+                            <label for="turtle-in">Turtle/N3</label>
                         </li>
                     </ul>
                 </nav>
-                <textarea name="data" placeholder="Paste your data here..."></textarea>
+
+                <nav class="input-nav">
+                    <ul>
+                        <li>
+                          <p>output format: </p>
+                        </li>
+                        <li>
+                            <input type="radio" id="xml-out" name="output_fileType" value="xml">
+                            <div class="circle"></div>
+                            <label for="xml-out">RDF/XML</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="json-out" name="output_fileType" value="json-ld" >
+                            <div class="circle"></div>
+                            <label for="json-out">JSON</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="turtle-out" name="output_fileType" value="turtle">
+                            <div class="circle"></div>
+                            <label for="turtle-out">Turtle/N3</label>
+                        </li>
+                    </ul>
+                </nav>
+          <% if (locals.input) { %>
+  <textarea name="data" placeholder="Paste your data here..."><%= input %></textarea>
+<% } else { %>
+  <textarea name="data" placeholder="Paste your data here..."></textarea>
+<% } %>
+
                 <button class="cta-button" id="submit-button" type="submit">Submit</button>
             </form>
         </div>
@@ -56,6 +86,7 @@
        </p>
       <%}%>
       </div>
+      
     </section>
     <script src="scripts/particles-config.js"></script>
     <script>

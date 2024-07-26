@@ -41,10 +41,20 @@
                         </li>
                     </ul>
                 </nav>
-                <textarea name="data" placeholder="Paste your data here..."></textarea>
+                      <% if (locals.input) { %>
+  <textarea name="data" placeholder="Paste your data here..."><%= input %></textarea>
+<% } else { %>
+  <textarea name="data" placeholder="Paste your data here..."></textarea>
+<% } %>
+
                 <button class="cta-button" id="submit-button" type="submit">Submit</button>
             </form>
         </div>
+    </section>
+    <section class="rdf-visualizer">
+      <%if(locals.output){%>  
+    <%- include('partials/error.ejs') %>
+      <%}%>
     </section>
     </main>
     <script src="scripts/particles-config.js"></script>

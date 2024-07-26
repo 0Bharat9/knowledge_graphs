@@ -1,7 +1,11 @@
 lib/
-input.txt
 rdf_graph.html
-
+design/
+visualize.txt
+convert.txt
+output.txt
+input.txt
+__pycache__/
 # compiled output
 /dist
 /tmp
