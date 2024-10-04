@@ -1,19 +1,22 @@
 <header>
-    <div class="icon-container">
-       <i class="fas fa-project-diagram"></i>
-    </div>
-    <nav>
-      <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/benefits">Benefits</a></li>
-          <li><a href="/use">Use Cases</a></li>
-          <li><a href="/rdfc">RDF Converter</a></li>
-          <li><a href="/rdfv">RDF Visualizer</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/signup" class="beta-signup">Signup</a></li>
-      </ul>
-    </nav>
+  <div class="icon-container">
+    <i class="fas fa-project-diagram"></i>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/benefits">Benefits</a></li>
+      <li><a href="/use">Use Cases</a></li>
+      <li><a href="/rdfc">RDF Converter</a></li>
+      <li><a href="/rdfv">RDF Visualizer</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <% if (user) { %>
+        <li><a href="/logout" class="beta-signup">Logout</a></li>
+      <% } else { %>
+        <li><a href="/signup" class="beta-signup">Signup</a></li>
+      <% } %>
+    </ul>
+  </nav>
 </header>
-
 
 

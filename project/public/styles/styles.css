@@ -698,3 +698,7 @@ nav ul li .beta-signup:hover {
 .error__close path {
   fill: #fff;
 }
+
+.login {
+  color: #0e53c4;
+}
